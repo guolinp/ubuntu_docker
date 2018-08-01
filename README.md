@@ -1,1 +1,5 @@
-# ubuntu_docker
+# How to run?
+
+```
+sudo docker run --rm -it panguolin/ubuntu
+```
