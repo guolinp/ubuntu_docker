@@ -22,7 +22,8 @@ RUN apt-get -y install \
         iproute2 \
         tcpdump \
         tree \
-        htop
+        htop \
+        vim
         
 # slim down image
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/man/?? /usr/share/man/??_*
