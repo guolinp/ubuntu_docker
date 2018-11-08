@@ -19,6 +19,7 @@ RUN apt-get -y install \
         uml-utilities \
         iptables-persistent \
         iputils-ping \
+        iproute2 \
         tcpdump \
         tree \
         htop
@@ -29,6 +30,11 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/ma
 RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
         python3 get-pip.py && \
         rm -rf get-pip.py
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
 
 # goes into bash
 CMD ["/bin/bash"]
