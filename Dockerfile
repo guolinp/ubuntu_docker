@@ -12,6 +12,7 @@ RUN apt-get -y install \
         git \
         python3 \
         python3-dev \
+        bpython \
         curl \
         openssh-server \
         net-tools \
@@ -21,8 +22,14 @@ RUN apt-get -y install \
         iputils-ping \
         iproute2 \
         tcpdump \
+        openvswitch-switch \
         tree \
         htop \
+        sudo \
+        gcc \
+        g++ \
+        make \
+        cmake \
         vim
         
 # slim down image
@@ -34,6 +41,10 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
+
+RUN useradd -d /home/ubuntu -ms /bin/bash -g root -G sudo -p ubuntu ubuntu
+USER ubuntu
+WORKDIR /home/ubuntu
 
 ENTRYPOINT ["/entrypoint.sh"]
 
