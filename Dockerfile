@@ -42,11 +42,5 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-RUN useradd -d /home/ubuntu -ms /bin/bash -g root -G sudo -p ubuntu ubuntu
-#USER ubuntu
-#WORKDIR /home/ubuntu
-
 ENTRYPOINT ["/entrypoint.sh"]
-
-# goes into bash
 CMD ["/bin/bash"]
