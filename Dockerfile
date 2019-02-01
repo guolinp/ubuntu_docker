@@ -11,6 +11,8 @@ RUN apt-get clean && apt-get upgrade -y && apt-get update -y --fix-missing
 RUN apt-get -y install \
         git \
         mercurial \
+        libglib2.0-dev \
+        libpixman-1-dev \
         python3 \
         python3-dev \
         bpython \
