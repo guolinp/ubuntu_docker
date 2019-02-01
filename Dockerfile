@@ -49,4 +49,6 @@ USER ubuntu
 WORKDIR /home/ubuntu
 ENV HOME /home/ubuntu
 
+COPY init /init
+ENTRYPOINT ["/init"]
 CMD ["/bin/bash"]
