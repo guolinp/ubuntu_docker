@@ -1,7 +1,9 @@
 #!/bin/sh
 
-# Start the ssh server
-/etc/init.d/ssh restart
+# start the ssh server
+/etc/init.d/ssh restart > /dev/null 2>&1
 
-# Execute the CMD
+[ -x "/userinit" ] && /userinit
+
+# execute the CMD
 exec "$@"
