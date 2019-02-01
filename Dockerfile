@@ -42,12 +42,12 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
         python3 get-pip.py && \
         rm -rf get-pip.py
 
-RUN useradd -ms /bin/bash ubuntu && \
-    chown -R ubuntu:ubuntu /home/ubuntu
-
-USER ubuntu
-WORKDIR /home/ubuntu
-ENV HOME /home/ubuntu
+# RUN useradd -ms /bin/bash ubuntu && \
+#     chown -R ubuntu:ubuntu /home/ubuntu
+# 
+# USER ubuntu
+# WORKDIR /home/ubuntu
+# ENV HOME /home/ubuntu
 
 COPY init /init
 ENTRYPOINT ["/init"]
