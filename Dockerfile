@@ -26,6 +26,10 @@ RUN apt-get -y install \
         openvswitch-switch \
         qemu-system-arm \
         qemu-system-x86 \
+        cpio \
+        unzip \
+        rsync \
+        bc \
         tree \
         htop \
         sudo \
