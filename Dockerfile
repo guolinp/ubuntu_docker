@@ -10,6 +10,7 @@ RUN apt-get clean && apt-get upgrade -y && apt-get update -y --fix-missing
 
 RUN apt-get -y install \
         git \
+        mercurial \
         python3 \
         python3-dev \
         bpython \
@@ -23,6 +24,8 @@ RUN apt-get -y install \
         iproute2 \
         tcpdump \
         openvswitch-switch \
+        qemu-system-arm \
+        qemu-system-x86 \
         tree \
         htop \
         sudo \
@@ -39,8 +42,11 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
         python3 get-pip.py && \
         rm -rf get-pip.py
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+RUN useradd -ms /bin/bash ubuntu && \
+    chown -R ubuntu:ubuntu /home/ubuntu
 
-ENTRYPOINT ["/entrypoint.sh"]
+USER ubuntu
+WORKDIR /home/ubuntu
+ENV HOME /home/ubuntu
+
 CMD ["/bin/bash"]
