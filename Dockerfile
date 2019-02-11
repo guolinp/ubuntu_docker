@@ -28,6 +28,7 @@ RUN apt-get -y install \
         openvswitch-switch \
         qemu-system-arm \
         qemu-system-x86 \
+        telnet \
         cpio \
         unzip \
         rsync \
