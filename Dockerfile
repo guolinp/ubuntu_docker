@@ -28,7 +28,7 @@ RUN apt-get -y install \
         openvswitch-switch \
         qemu-system-arm \
         qemu-system-x86 \
-        docker-ce \
+        docker.io \
         telnet \
         cpio \
         unzip \
